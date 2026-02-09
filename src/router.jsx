@@ -1,30 +1,15 @@
-import { createBrowserRouter } from 'react-router-dom';
-import TaskDashboard from './pages/TaskDashboard';
-import CreateTask from './pages/CreateTask';
+import { createHashRouter } from "react-router-dom";
+import TaskDashboard from "./pages/TaskDashboard";
+import CreateTask from "./pages/CreateTask";
 
-import Login from './pages/Login';
-import ProtectedRoute from './components/ProtectedRoute';
-
-const router = createBrowserRouter([
+const router = createHashRouter([
   {
-    path: '/login',
-    element: <Login />
+    path: "/",
+    element: <TaskDashboard />
   },
   {
-    path: '/',
-    element: (
-      <ProtectedRoute>
-        <TaskDashboard />
-      </ProtectedRoute>
-    )
-  },
-  {
-    path: '/create',
-    element: (
-      <ProtectedRoute>
-        <CreateTask />
-      </ProtectedRoute>
-    )
+    path: "/create",
+    element: <CreateTask />
   }
 ]);
 
